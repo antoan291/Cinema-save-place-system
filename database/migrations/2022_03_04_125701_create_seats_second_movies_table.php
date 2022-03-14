@@ -17,6 +17,7 @@ class CreateSeatsSecondMoviesTable extends Migration
             $table->id();
       
             $table->unsignedBigInteger('seat_id');
+            $table->unsignedBigInteger('project');
             $table->unsignedBigInteger('row_seats');
             $table->timestamps();
         });

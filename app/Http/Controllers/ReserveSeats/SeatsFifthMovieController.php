@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\User;
-use App\Models\SeatsFirstMovie;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
+use App\Models\SeatsFifthMovie;
 use Illuminate\Http\Request;
 
-class SeatsFirstMovieController extends Controller
+class SeatsFifthMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +17,10 @@ class SeatsFirstMovieController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index(SeatsFirstMovie $seats)
-    {     
-        $request = new Request;
-        $row_seats_4 = $seats;
-        $row_seats_4 ->row_seats = 4;
 
-        return view('seats.seatsFirstMovie',compact('seats','row_seats_4'));
+    public function index(SeatsFifthMovie $seats)
+    {
+        return view('seats.seatsFifthMovie',compact('seats'));
     }
 
     /**
@@ -44,15 +41,15 @@ class SeatsFirstMovieController extends Controller
      */
     public function store(Request $request)
     {
-         
-        $seats = new SeatsFirstMovie;
+        $seats = new SeatsFifthMovie;
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/seats/firstMovie');
+        return redirect('/fifthMovie');
     }
 
     /**
@@ -95,18 +92,16 @@ class SeatsFirstMovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,Request $request)
+    public function destroy($id)
     {
-    $seats = SeatsFirstMovie::find($id);
+        $seats = SeatsFifthMovie::find($id);
    
 
-    if ($seats != null) {
-        $seats->delete();
-        return redirect('/seats/firstMovie')->with('success', 'Post Removed Succesfully !');
+        if ($seats != null) {
+            $seats->delete();
+            return redirect('/fifthMovie')->with('success', 'Post Removed Succesfully !');
+        }
+    
+        return redirect('/fifthMovie')->with('status','Something went wrong !');
     }
-
-    return redirect('/seats/firstMovie')->with('status','Something went wrong !');
-       
-    }
-
 }

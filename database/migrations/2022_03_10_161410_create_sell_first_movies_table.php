@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeatsThirdMoviesTable extends Migration
+class CreateSellFirstMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateSeatsThirdMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('seats_third_movies', function (Blueprint $table) {
+        Schema::create('sell_first_movies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('seat_id');
-            $table->unsignedBigInteger('project');
-            $table->unsignedBigInteger('row_seats');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateSeatsThirdMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seats_third_movies');
+        Schema::dropIfExists('sell_first_movies');
     }
 }

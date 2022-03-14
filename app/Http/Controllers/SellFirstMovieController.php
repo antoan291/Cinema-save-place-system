@@ -1,25 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\SeatsSeventhMovie;
+use App\Models\SellFirstMovie;
 use Illuminate\Http\Request;
 
-class SeatsSeventhMovieController extends Controller
+class SellFirstMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+    public function index(SellFirstMovie $sellProduct)
     {
-        $this->middleware('auth');
-    }
-
-    public function index(SeatsSeventhMovie $seats)
-    {
-     return view('seats.seatsSeventhMovie',compact('seats'));
-
+        return view('sellProducts.sellFirstMovie',compact('sellProduct'));
     }
 
     /**
@@ -40,14 +34,7 @@ class SeatsSeventhMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $seats = new SeatsSeventhMovie;
-        
-        $seats->id = $request->get('id');
-        $seats->row_seats = $request->get('row_seats');
-        $seats->seat_id = $request->get('seat_id');
-        $seats->save();
-    
-        return redirect('/seventhMovie/seventhMovie');
+        //
     }
 
     /**
@@ -92,14 +79,6 @@ class SeatsSeventhMovieController extends Controller
      */
     public function destroy($id)
     {
-        $seats = SeatsSeventhMovie::find($id);
-   
-
-        if ($seats != null) {
-            $seats->delete();
-            return redirect('/seventhMovie/seventhMovie')->with('success', 'Post Removed Succesfully !');
-        }
-    
-        return redirect('/seventhMovie/seventhMovie')->with('status','Something went wrong !');    
+        //
     }
 }

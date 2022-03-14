@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\SeatsSixthMovie;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
+use App\Models\SeatsFourthMovie;
 use Illuminate\Http\Request;
 
-class SeatsSixthMovieController extends Controller
+class SeatsFourthMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,12 @@ class SeatsSixthMovieController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(SeatsSixthMovie $seats)
+    public function index(SeatsFourthMovie $seats)
     {
-       return view('seats.seatsSixthMovie',compact('seats'));
+        //\
+
+        return view('seats.seatsFourthMovie',compact('seats'));
+
     }
 
     /**
@@ -39,15 +43,15 @@ class SeatsSixthMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $seats = new SeatsSixthMovie;
+        $seats = new SeatsFourthMovie;
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/sixthMovie/sixthMovie'); 
-    
+        return redirect('/fourthMovie');
     }
 
     /**
@@ -92,15 +96,14 @@ class SeatsSixthMovieController extends Controller
      */
     public function destroy($id)
     {
-        $seats = SeatsSixthMovie::find($id);
+        $seats = SeatsFourthMovie::find($id);
    
 
-        if ($seats != null) {
-            $seats->delete();
-            return redirect('/sixthMovie/sixthMovie')->with('success', 'Post Removed Succesfully !');
-        }
-    
-        return redirect('/sixthMovie/sixthMovie')->with('status','Something went wrong !'); 
-    
+    if ($seats != null) {
+        $seats->delete();
+        return redirect('/fourthMovie')->with('success', 'Post Removed Succesfully !');
+    }
+
+    return redirect('/fourthMovie')->with('status','Something went wrong !');
     }
 }

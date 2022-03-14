@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\SeatsThirdMovie;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
+use App\Models\SeatsSeventhMovie;
 use Illuminate\Http\Request;
 
-class SeatsThirdMovieController extends Controller
+class SeatsSeventhMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,10 @@ class SeatsThirdMovieController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(SeatsThirdMovie $seats)
+    public function index(SeatsSeventhMovie $seats)
     {
-        return view('seats.seatsThirdMovie',compact('seats'));
+     return view('seats.seatsSeventhMovie',compact('seats'));
+
     }
 
     /**
@@ -39,14 +41,15 @@ class SeatsThirdMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $seats = new SeatsThirdMovie;
+        $seats = new SeatsSeventhMovie;
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/thirdMovie/thirdMovie');
+        return redirect('/seventhMovie');
     }
 
     /**
@@ -91,14 +94,14 @@ class SeatsThirdMovieController extends Controller
      */
     public function destroy($id)
     {
-        $seats = SeatsThirdMovie::find($id);
+        $seats = SeatsSeventhMovie::find($id);
    
 
         if ($seats != null) {
             $seats->delete();
-            return redirect('/thirdMovie/thirdMovie')->with('success', 'Post Removed Succesfully !');
+            return redirect('/seventhMovie')->with('success', 'Post Removed Succesfully !');
         }
     
-        return redirect('/thirdMovie/thirdMovie')->with('status','Something went wrong !');
+        return redirect('/seventhMovie')->with('status','Something went wrong !');    
     }
 }

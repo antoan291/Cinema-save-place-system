@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img style="width:80px"src="https://static.vecteezy.com/system/resources/previews/002/648/104/non_2x/flame-logo-template-fire-logo-design-graphic-free-vector.jpg">
+                <img class="mt-2" style="width:100px;" src="https://cdn.logo.com/hotlink-ok/logo-social.png">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,19 +55,35 @@
                         <div class="d-flex align-items-center">
                     <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Reserve Seats
+                        Sell Products
                     </a>
                          <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/seats/firstMovie">Филм 1</a>
-                        <a class="dropdown-item" href="/secondMovie/secondMovie">Филм 2</a>
-                        <a class="dropdown-item" href="/thirdMovie/thirdMovie">Филм 3</a>
-                        <a class="dropdown-item" href="/fourthMovie/fourthMovie">Филм 4</a>
-                        <a class="dropdown-item" href="/fifthMovie/fifthMovie">Филм 5</a>
-                        <a class="dropdown-item" href="/sixthMovie/sixthMovie">Филм 6</a>
-                        <a class="dropdown-item" href="/seventhMovie/seventhMovie">Филм 7</a>
-
+                        <a class="dropdown-item" href="/sellFirstMovie">Филм 1</a>
+                        <a class="dropdown-item" href="/sellSecondMovie">Филм 2</a>
+                        <a class="dropdown-item" href="/sellThirdMovie">Филм 3</a>
+                        <a class="dropdown-item" href="/sellFourthMovie">Филм 4</a>
+                        <a class="dropdown-item" href="/sellFifthMovie">Филм 5</a>
+                        <a class="dropdown-item" href="/sellSixthMovie">Филм 6</a>
+                        <a class="dropdown-item" href="/sellSeventhMovie">Филм 7</a>
+                        <a class="dropdown-item" href="/sellEightMovie">Филм 8</a>
                         </div>
-                        
+                        <div class="d-flex align-items-center">
+                    <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Reserve Seats
+                    </a>
+                    <!-- /reserveFirstMovie , -->
+                         <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/firstMovie">Филм 1</a>
+                        <a class="dropdown-item" href="/secondMovie">Филм 2</a>
+                        <a class="dropdown-item" href="/thirdMovie">Филм 3</a>
+                        <a class="dropdown-item" href="/fourthMovie">Филм 4</a>
+                        <a class="dropdown-item" href="/fifthMovie">Филм 5</a>
+                        <a class="dropdown-item" href="/sixthMovie">Филм 6</a>
+                        <a class="dropdown-item" href="/seventhMovie">Филм 7</a>
+                        <a class="dropdown-item" href="/eightMovie">Филм 8</a>
+                        </div>
+                        </li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

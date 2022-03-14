@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\SeatsFourthMovie;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
+use App\Models\SeatsEightMovie;
 use Illuminate\Http\Request;
 
-class SeatsFourthMovieController extends Controller
+class SeatsEightMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index(SeatsFourthMovie $seats)
+    public function index(SeatsEightMovie $seats)
     {
-        //\
-
-        return view('seats.seatsFourthMovie',compact('seats'));
-
+        //
+        return view('seats.seatsEightMovie',compact('seats'));
     }
 
     /**
@@ -42,14 +42,15 @@ class SeatsFourthMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $seats = new SeatsFourthMovie;
+        $seats = new SeatsEightMovie;
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/fourthMovie/fourthMovie');
+        return redirect('/eightMovie');
     }
 
     /**
@@ -94,14 +95,14 @@ class SeatsFourthMovieController extends Controller
      */
     public function destroy($id)
     {
-        $seats = SeatsFourthMovie::find($id);
+        $seats = SeatsEightMovie::find($id);
    
 
-    if ($seats != null) {
-        $seats->delete();
-        return redirect('/fourthMovie/fourthMovie')->with('success', 'Post Removed Succesfully !');
-    }
-
-    return redirect('/fourthMovie/fourthMovie')->with('status','Something went wrong !');
+        if ($seats != null) {
+            $seats->delete();
+            return redirect('/eightMovie')->with('success', 'Post Removed Succesfully !');
+        }
+    
+        return redirect('/eightMovie')->with('status','Something went wrong !');
     }
 }

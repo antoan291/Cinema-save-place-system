@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
 use App\Models\SeatsSecondMovie;
 use Illuminate\Http\Request;
 
@@ -46,10 +47,11 @@ class SeatsSecondMovieController extends Controller
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/secondMovie/secondMovie');
+        return redirect('/secondMovie');
     }
 
     /**
@@ -99,10 +101,10 @@ class SeatsSecondMovieController extends Controller
 
     if ($seats != null) {
         $seats->delete();
-        return redirect('/secondMovie/secondMovie')->with('success', 'Post Removed Succesfully !');
+        return redirect('/secondMovie')->with('success', 'Post Removed Succesfully !');
     }
 
-    return redirect('/secondMovie/secondMovie')->with('status','Something went wrong !');
+    return redirect('/secondMovie')->with('status','Something went wrong !');
        
     
     }

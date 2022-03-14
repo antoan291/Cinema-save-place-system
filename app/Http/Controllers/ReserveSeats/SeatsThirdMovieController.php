@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\SeatsFifthMovie;
+namespace App\Http\Controllers\ReserveSeats;
+use App\Http\Controllers\Controller;
+use App\Models\SeatsThirdMovie;
 use Illuminate\Http\Request;
 
-class SeatsFifthMovieController extends Controller
+class SeatsThirdMovieController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index(SeatsFifthMovie $seats)
+    public function index(SeatsThirdMovie $seats)
     {
-        return view('seats.seatsFifthMovie',compact('seats'));
+        return view('seats.seatsThirdMovie',compact('seats'));
     }
 
     /**
@@ -40,14 +40,15 @@ class SeatsFifthMovieController extends Controller
      */
     public function store(Request $request)
     {
-        $seats = new SeatsFifthMovie;
+        $seats = new SeatsThirdMovie;
         
         $seats->id = $request->get('id');
         $seats->row_seats = $request->get('row_seats');
+        $seats->project = $request->get('project');
         $seats->seat_id = $request->get('seat_id');
         $seats->save();
     
-        return redirect('/fifthMovie/fifthMovie');
+        return redirect('/thirdMovie');
     }
 
     /**
@@ -92,14 +93,14 @@ class SeatsFifthMovieController extends Controller
      */
     public function destroy($id)
     {
-        $seats = SeatsFifthMovie::find($id);
+        $seats = SeatsThirdMovie::find($id);
    
 
         if ($seats != null) {
             $seats->delete();
-            return redirect('/fifthMovie/fifthMovie')->with('success', 'Post Removed Succesfully !');
+            return redirect('/thirdMovie')->with('success', 'Post Removed Succesfully !');
         }
     
-        return redirect('/fifthMovie/fifthMovie')->with('status','Something went wrong !');
+        return redirect('/thirdMovie')->with('status','Something went wrong !');
     }
 }

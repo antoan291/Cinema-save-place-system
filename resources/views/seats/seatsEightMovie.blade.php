@@ -12,17 +12,17 @@
 
 4 Ред
 @foreach (range(1, 12) as $item)
-@if(App\Models\SeatsSeventhMovie::find($item))
+@if(App\Models\SeatsEightMovie::find($item))
 
 
-<form  method="post" action="{{ route('seventhMovie.destroy',  $item) }}">
+<form  method="post" action="{{ route('eightMovie.destroy',  $item) }}">
         @csrf
         @method('delete')
         <!-- <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/> -->
         <input type="hidden" name="id" value="{{ $item }}"/>
         <input type="hidden" name="row_seats" value="4"/>
         <input type="hidden" name="seat_id" value="{{ $item }}"/>
-        <input type="hidden" name="project" value="7"/>
+        <input type="hidden" name="project" value="8"/>
         <button type="submit"   style="margin-left:10px; width:80px; display:inline;"  class="btn btn-danger">{{$item}}</button>
 
 
@@ -30,14 +30,14 @@
 
             @else
       
-        <form  method="post" action="/seventhMovie">
+        <form  method="post" action="/eightMovie">
    
         @csrf 
         <!-- <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/> -->
         <input type="hidden" name="id" value="{{ $item }}"/>
             <input type="hidden" name="row_seats" value="4"/>
             <input type="hidden" name="seat_id" value="{{  $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="8"/>
             <button  type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-success">{{ $item}}</button>
             
             
@@ -53,26 +53,26 @@
     <div style="display: flex;">
         3 Ред
 @foreach (range(13, 26) as $item)
-        @if(App\Models\SeatsSeventhMovie::find($item))
-        <form method="post" action="{{ route('seventhMovie.destroy', $item)}}">
+        @if(App\Models\SeatsEightMovie::find($item))
+        <form method="post" action="{{ route('eightMovie.destroy', $item)}}">
         @csrf
         @method('delete')
         <input type="hidden" name="id" value="{{ $item}}"/>
         <input type="hidden" name="row_seats" value="3"/>
         <input type="hidden" name="seat_id" value="{{ $item }}"/>
-        <input type="hidden" name="project" value="7"/>
+        <input type="hidden" name="project" value="8"/>
         <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-danger">{{$item}}</button>
 
             </form>
 
 
             @else
-            <form  method="post" action="/seventhMovie">
+            <form  method="post" action="/eightMovie">
         @csrf 
         <input type="hidden" name="id" value="{{ $item}}"/>
             <input type="hidden" name="row_seats" value="3"/>
             <input type="hidden" name="seat_id" value="{{ $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="8"/>
             <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-success">{{$item}}</button>
             
 
@@ -86,26 +86,26 @@
 2 Ред
 @foreach (range(27, 40) as $item)
 
-        @if(App\Models\SeatsSeventhMovie::find($item))
-        <form method="post" action="{{ route('seventhMovie.destroy', $item) }}">
+        @if(App\Models\SeatsEightMovie::find($item))
+        <form method="post" action="{{ route('eightMovie.destroy', $item) }}">
         @csrf
         @method('delete')
         <input type="hidden" name="id" value="{{ $item}}"/>
             <input type="hidden" name="row_seats" value="2"/>
             <input type="hidden" name="seat_id" value="{{ $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="8"/>
         <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-danger">{{$item}}</button>
 
             </form>
 
 
             @else
-            <form  method="post" action="/seventhMovie">
+            <form  method="post" action="/eightMovie">
         @csrf 
         <input type="hidden" name="id" value="{{ $item}}"/>
             <input type="hidden" name="row_seats" value="2"/>
             <input type="hidden" name="seat_id" value="{{ $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="8"/>
             <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-success">{{$item}}</button>
             
 
@@ -121,26 +121,26 @@
 
 @foreach (range(41, 54) as $item)
 
-        @if(App\Models\SeatsSeventhMovie::find($item))
-        <form method="post" action="{{ route('seventhMovie.destroy', $item) }}">
+        @if(App\Models\SeatsEightMovie::find($item))
+        <form method="post" action="{{ route('eightMovie.destroy', $item) }}">
         @csrf
         @method('delete')
         <input type="hidden" name="id" value="{{ $item}}"/>
             <input type="hidden" name="row_seats" value="1"/>
             <input type="hidden" name="seat_id" value="{{ $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="1"/>
         <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-danger">{{$item}}</button>
 
             </form>
 
 
             @else
-            <form  method="post" action="/seventhMovie">
+            <form  method="post" action="/eightMovie">
         @csrf 
         <input type="hidden" name="id" value="{{ $item}}"/>
             <input type="hidden" name="row_seats" value="1"/>
             <input type="hidden" name="seat_id" value="{{ $item }}"/>
-            <input type="hidden" name="project" value="7"/>
+            <input type="hidden" name="project" value="1"/>
             <button type="submit"  style="width:80px; margin-left:10px;"  class="btn btn-success">{{$item}}</button>
             
 
